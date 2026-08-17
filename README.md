@@ -1,49 +1,87 @@
-# News-bot
-A Telegram bot that fetches breaking news , stores them in a database, and automatically publishes them to registered channels and groups. The bot handles error management, allows for real-time monitoring, and ensures that only active channels receive the news. It includes features for managing banned users, tracking bot activity and more
+# 📡 News Bot - Automated Telegram News Publisher
 
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
+[![Telegram](https://img.shields.io/badge/Bot-Telegram-blue.svg)](https://core.telegram.org/bots)
+[![Framework](https://img.shields.io/badge/Framework-python--telegram--bot-green.svg)](https://python-telegram-bot.org/)
+[![Database](https://img.shields.io/badge/Database-SQLite3-lightgrey.svg)](https://www.sqlite.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-News Bot
+An advanced, robust, and automated Telegram bot designed to fetch breaking news from live feeds (GraphQL APIs) and instantly broadcast them across multiple Telegram channels and groups. Built with **Python**, **Asyncio**, and **SQLite**.
 
-Description:
-A Telegram bot that fetches breaking news from Al Jazeera, stores them in a database, and automatically publishes them to registered channels and groups. The bot features error management, real-time monitoring, and ensures that only active channels receive the news. It also includes features for managing banned users, tracking bot activity, and more.
+---
 
-Features:
+## ✨ Key Features
 
-Fetch breaking news from Al Jazeera live.
+- **⚡ Real-time Breaking News:** Automatically polls GraphQL endpoints (e.g., Al Jazeera Mubasher) for breaking news updates.
+- **📢 Multi-Channel Broadcasting:** Broadcast news effortlessly across multiple channels and groups simultaneously.
+- **🛡 Robust Error Handling & Recovery:** Built-in auto-retry mechanisms for network errors, rate limits (Flood control), and database integrity.
+- **🔔 Admin Alert System:** Automatically notifies the administrator in case of critical API or runtime errors.
+- **🗄 SQLite Persistence:** Ensures no duplicate news are ever published using MD5 hashing and local storage.
+- **⚙️ Complete Control Panel:** Interactive management dashboard for administrators to monitor stats, add/remove channels, and manage bot settings.
 
-Automatically publish news to Telegram channels and groups.
+---
 
-Manage active and inactive channels.
+## 🛠 Tech Stack
 
-Manage banned users.
+- **Language:** Python 3.10+
+- **Bot Framework:** [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot)
+- **Database:** SQLite3 (Zero-configuration persistent storage)
+- **Networking:** `requests` & `aiohttp` for asynchronous and synchronous API requests
+- **Concurrency:** `asyncio` for non-blocking task scheduling and broadcasting
 
-Detailed error reports for admins.
+---
 
-A database to store news and other data.
+## 🚀 Installation & Setup
 
-Ability to dynamically add and remove channels.
+### 1. Clone the Repository
+```bash
+git clone https://github.com/abodjmal2004/News-bot.git
+cd News-bot
+```
 
-Usage:
+### 2. Install Dependencies
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
-Add the bot to your channel or group.
+### 3. Configure Credentials
+Open `main_bot.py` and set your `BOT_TOKEN` and `ADMIN_USER_ID`:
+```python
+BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
+ADMIN_USER_ID = YOUR_TELEGRAM_ID
+```
 
-Ensure the bot has "Admin" privileges with the ability to send messages.
+### 4. Run the Bot
+```bash
+python main_bot.py
+```
 
-The bot will automatically start publishing breaking news every minute.
+---
 
-Installation:
+## 🔒 Security & Privacy
+This bot keeps administrative controls strictly secured by verifying the `ADMIN_USER_ID` for all sensitive commands. Never expose your bot token publicly.
 
-Create a new database or use an existing one.
+---
 
-Modify the configuration file (e.g., BOT_TOKEN) to match your settings.
+## 👨‍💻 Developer
 
-Contribution:
+**Abod Jamal** — Software Developer & Computer Science Graduate  
+Passionate about building modern applications, clean architecture, automation, and smooth user experiences. Based in Gaza, Palestine.
 
-If you would like to contribute to improving the bot or adding new features, you can create a "Pull Request" after making the necessary modifications.
+### 🌐 Connect With Me
+[![Telegram](https://img.shields.io/badge/Telegram-Contact-blue?logo=telegram)](https://t.me/xw_25aa)
+[![Instagram](https://img.shields.io/badge/Instagram-Follow-E4405F?logo=instagram&logoColor=white)](https://instagram.com/xw_.0)
+[![GitHub](https://img.shields.io/badge/GitHub-abodjmal2004-black?logo=github)](https://github.com/abodjmal2004)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Abod%20Jamal-blue?logo=linkedin)](https://www.linkedin.com/in/abod-jamal-dev/)
 
-For more tools, join our Telegram channel: https://t.me/G0C_C
+---
 
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-
-
-الوصف: بوت تليجرام يقوم بجلب الأخبار العاجلة من الجزيرة مباشر، حفظها في قاعدة بيانات، ثم نشرها تلقائيًا إلى القنوات والمجموعات المسجلة. يتميز البوت بإدارة الأخطاء، ويسمح بالمراقبة في الوقت الفعلي، ويضمن أن القنوات النشطة فقط تتلقى الأخبار. كما يحتوي على ميزات لإدارة المستخدمين المحظورين وتتبع نشاط البوت والمزيد. الميزات: جلب الأخبار العاجلة من قناة الجزيرة مباشر. نشر الأخبار تلقائيًا إلى قنوات ومجموعات تليجرام. إدارة القنوات النشطة والمتوقفة. إدارة المستخدمين المحظورين. تقارير الأخطاء التفصيلية للمشرفين. قاعدة بيانات لتخزين الأخبار والبيانات الأخرى. إمكانية إضافة وإزالة القنوات بشكل ديناميكي. كيفية الاستخدام: قم بإضافة البوت إلى القناة أو المجموعة الخاصة بك. تأكد من منح البوت صلاحية "أدمن" مع حق إرسال الرسائل. سيبدأ البوت في نشر الأخبار العاجلة بشكل تلقائي كل دقيقة. التثبيت: قم بإنشاء قاعدة بيانات جديدة أو استخدم الموجودة بالفعل. قم بتعديل ملف الإعدادات (مثل BOT_TOKEN) ليتناسب مع إعداداتك. المساهمة: إذا كنت ترغب في المساهمة في تحسين البوت أو إضافة ميزات جديدة، يمكنك إنشاء "Pull Request" بعد إجراء التعديلات المطلوبة قناة التلجرام لمزيد من الادوات https://t.me/G0C_C
+---
+<p align="center">
+  Developed with ❤️ for Automated News Delivery.
+</p>
